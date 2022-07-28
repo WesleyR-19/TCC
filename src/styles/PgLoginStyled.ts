@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: cursive;
+    font-family: 'Poppins';
     
 }
 #root {
