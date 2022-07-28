@@ -1,5 +1,5 @@
 import React from "react";
-import {DivElements, DivLogin} from "../../styles/PgLoginStyled";
+import {DivElements, DivLogin, Text, Usuario , DivUsuario, ButtonEnviar, DivBotao, InputPreencher, Senha } from "../../styles/PgLoginStyled";
 
 
 function PgLogin() {
@@ -7,29 +7,22 @@ function PgLogin() {
         <> 
             <DivElements>
                 <DivLogin>
-                    <h1>LOGIN</h1>
+                    <Text>Login</Text>
                     <br/>
-                    <div>
-                        <label> CPF:
+                    <DivUsuario>
+                        <Usuario>Usuário:</Usuario>
                         <br/>
-                        <input type={"text"}  placeholder='Insira seu CPF'></input>
-                        </label>
+                        <InputPreencher type={"text"}  placeholder='Insira o usuário'></InputPreencher>
                         <br/>
-                        <label>Senha:
+                        <Senha>Senha:</Senha>
                             <br/>
-                            <input type={"password"} placeholder='Digite sua senha' ></input>
-                        </label>
-                    </div>
-                    <div>
+                            <InputPreencher  type={"password"} placeholder='Digite sua senha' ></InputPreencher>
+                    </DivUsuario>
+                    <DivBotao>
                         <br/>
-                        <input type={'submit'} placeholder='ENVIAR'></input>
+                        <ButtonEnviar className= 'Enviar'> Enviar </ButtonEnviar>
                         <br/>
-                    </div>
-                    <div>
-                        <br/>
-                        <a href="###">Não Possui uma conta?
-                                     Cadastre-se   </a>
-                    </div>
+                    </DivBotao>
                 </DivLogin>
             </DivElements>
         </>

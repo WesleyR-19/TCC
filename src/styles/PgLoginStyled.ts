@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: 'Poppins';
+    font-family: Poppins;
     
 }
 #root {
@@ -27,7 +27,6 @@ body {
 `
 
 export const DivElements = styled.div `
-border: 1px solid black;
 border-radius: 70px;
 display: flex;
 background-image: url(${fundo1});
@@ -40,7 +39,6 @@ height: 85%;
 
 export const DivLogin = styled.div `
 background-color: #4180AB;
-border: 1px solid black;
 border-radius: 50px;
 display: flex;
 flex-direction: column;
@@ -56,5 +54,115 @@ color: #011A42;
 }
 
 `
+export const Text = styled.text `
+font-size: 64px;
+font-style: 'normal';
+font-weight: 700;
+color:white;
+
+
+@media (max-width: 825px)
+{
+    font-size: 50px;
+}
+
+@media (max-width: 412px)
+{
+    font-size: 25px;
+}
+`
+export const DivUsuario = styled.div `
+    width: 80%;
+`
+
+export const Usuario = styled.text `
+font-size: 19px;
+font-style: 'normal';
+font-weight: 700;
+color:white;
+
+@media (max-width: 825px)
+{
+    font-size: 14px;
+}
+
+@media (max-width: 412px)
+{
+    font-size:10px;
+}
+`
+export const InputPreencher = styled.input `
+text-decoration: overline;
+    width: 100%;
+    border: none;
+    background-color: #4180AB;
+    border-style: solid;
+    border-color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 0px;
+    font-size: 18px;
+
+   ::placeholder{
+        color: #585858;
+    }
+
+
+    @media (max-width: 825px)
+{
+    font-size: 13px;
+}
+
+@media (max-width: 412px)
+{
+    font-size:9px;
+}
+
+`
+export const Senha = styled.text `
+font-size: 19px;
+font-style: 'normal';
+font-weight: 700;
+color:white;
+margin-top: 50px;
+
+@media (max-width: 825px)
+{
+    font-size: 14px;
+}
+
+@media (max-width: 412px)
+{
+    font-size:10px;
+}
+`
+export const DivBotao = styled.div `
+width: 100%;
+`
+export const ButtonEnviar = styled.button `
+width: 40%;
+height: 50px;
+background: #00233A;
+border-radius: 15px;
+font-family: 'Poppins';
+color: white;
+font-size: 16px;
+font-style: 'normal';
+font-weight: 700;
+margin-top:71px;
+
+@media (max-width: 825px)
+{
+    font-size: 12px;
+}
+
+@media (max-width: 412px)
+{
+    font-size:8px;
+}
+
+`
+
 
 
