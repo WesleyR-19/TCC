@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { createGlobalStyle } from 'styled-components';
-import fundo1 from "../images/fundo1.png";
-
-
-
-
+import fundoLogin from "../images/fundoLogin.png"
 
 export const GlobalStyle = createGlobalStyle `
 body {
@@ -29,7 +25,7 @@ body {
 export const DivElements = styled.div `
 border-radius: 70px;
 display: flex;
-background-image: url(${fundo1});
+background-image: url(${fundoLogin});
 text-align: center;
 justify-content: center;
 align-items: center;
@@ -48,18 +44,12 @@ align-items: center;
 width: 38%;
 height: 73%;
 
-a {
-text-decoration: none;
-color: #011A42;
-}
-
 `
 export const Text = styled.text `
 font-size: 64px;
 font-style: 'normal';
 font-weight: 700;
 color:white;
-
 
 @media (max-width: 825px)
 {
@@ -73,6 +63,10 @@ color:white;
 `
 export const DivUsuario = styled.div `
     width: 80%;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+    margin-top: 38px;
 `
 
 export const Usuario = styled.text `
@@ -80,6 +74,7 @@ font-size: 19px;
 font-style: 'normal';
 font-weight: 700;
 color:white;
+
 
 @media (max-width: 825px)
 {
@@ -92,7 +87,7 @@ color:white;
 }
 `
 export const InputPreencher = styled.input `
-text-decoration: overline;
+    text-decoration: overline;
     width: 100%;
     border: none;
     background-color: #4180AB;
@@ -103,21 +98,22 @@ text-decoration: overline;
     border-right: none;
     padding: 0px;
     font-size: 18px;
+    
 
-   ::placeholder{
-        color: #585858;
+    :focus {
+        outline: none;
     }
 
 
     @media (max-width: 825px)
-{
-    font-size: 13px;
-}
+    {
+        font-size: 13px;
+    }
 
-@media (max-width: 412px)
-{
-    font-size:9px;
-}
+        @media (max-width: 412px)
+    {
+        font-size:9px;
+    }
 
 `
 export const Senha = styled.text `
@@ -139,6 +135,7 @@ margin-top: 50px;
 `
 export const DivBotao = styled.div `
 width: 100%;
+margin-bottom: 15px;
 `
 export const ButtonEnviar = styled.button `
 width: 40%;
@@ -150,7 +147,7 @@ color: white;
 font-size: 16px;
 font-style: 'normal';
 font-weight: 700;
-margin-top:71px;
+margin-top: 44px;
 
 @media (max-width: 825px)
 {

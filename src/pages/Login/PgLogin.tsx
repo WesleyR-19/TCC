@@ -3,6 +3,14 @@ import {DivElements, DivLogin, Text, Usuario , DivUsuario, ButtonEnviar, DivBota
 
 
 function PgLogin() {
+    // function getStyles() {
+    //     if (getIn(errors, fieldName)) {
+
+    //         return (
+    //             outline: 'none',
+    //         );
+    //     }'
+    // }
     return (
         <> 
             <DivElements>
@@ -12,15 +20,16 @@ function PgLogin() {
                     <DivUsuario>
                         <Usuario>Usuário:</Usuario>
                         <br/>
-                        <InputPreencher type={"text"}  placeholder='Insira o usuário'></InputPreencher>
+                        <InputPreencher  type={"text"} ></InputPreencher>
+                        <br/>
                         <br/>
                         <Senha>Senha:</Senha>
                             <br/>
-                            <InputPreencher  type={"password"} placeholder='Digite sua senha' ></InputPreencher>
+                            <InputPreencher  type={"password"}  ></InputPreencher>
                     </DivUsuario>
                     <DivBotao>
                         <br/>
-                        <ButtonEnviar className= 'Enviar'> Enviar </ButtonEnviar>
+                        <ButtonEnviar> Entrar </ButtonEnviar>
                         <br/>
                     </DivBotao>
                 </DivLogin>
