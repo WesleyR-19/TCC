@@ -1,13 +1,17 @@
 import React from 'react'
-import PgLogin from './pages/Login/PgLogin';
 import { GlobalStyle } from './styles/PgLoginStyled';
+import  Routes  from './Routes/index'
+import { BrowserRouter } from 'react-router-dom';
+
 
 function App() {
 
   return (
-<> 
-    <GlobalStyle/>
-    <PgLogin></PgLogin>
+<>
+    <BrowserRouter>
+      <Routes/>
+      <GlobalStyle/>
+    </BrowserRouter>
 </>
   )
 }
