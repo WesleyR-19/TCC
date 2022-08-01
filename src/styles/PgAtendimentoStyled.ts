@@ -13,14 +13,13 @@ background-image: url(${ImgFundo});
 export const DivSair = styled.div `
 background-color: #4180AB;
 width: 100%;
-height: 20%;
+height: 7%;
 text-align: right;
-
+padding-top: 24px;
 `
 
 export const ButtonST = styled.button `
-margin-top: 30px;
-margin-right: 25px;
+margin-right: 40px;
 background-color: #4180AB;
 padding: 0px;
 font-size: 22px;
@@ -30,6 +29,7 @@ color: white;
 font-weight: bold;
 text-decoration: none;
 border: none;
+margin-top: 1%;
 `
 export const DivElements = styled.div `
 display:flex;
@@ -37,12 +37,16 @@ flex-direction: column;
 text-align: center;
 justify-content: center;
 align-items: center;
+width: 100%;
+height: 100vh;
 ` 
 
 export const Titulo = styled.h1 `
 font-family: Arial;
 font-size: 64px;
 font-style: none;
+margin: 0px;
+margin-top: 50px;
 `
 export const DivInputs = styled.div `
 flex-direction: column;
@@ -50,13 +54,16 @@ display:flex;
 text-align: left;
 justify-content: left;
 align-items: left;
-width: 85%;
 margin-bottom: 50px;
+width: 100%;
+height: 100vh;
 `
 
 export const DivItems = styled.div `
 flex-direction: column;
 display: flex;
+margin: 50px;
+margin-top: 0px;
 `
 
 export const Posicionamento = styled.div `
@@ -80,7 +87,7 @@ export const InputStyled = styled.input `
 
 export const InputStyledNumero = styled.input `
     text-decoration: overline;
-    width: 28%;
+    width: 100%;
     height: 50px;
     border: none;
     background-color: #E9F4FB;
@@ -105,6 +112,14 @@ flex-direction: column;
 width: 100%;
 margin-right: 10px;
 `
+
+export const DivUnir2 = styled.div `
+display: flex;
+flex-direction: column;
+width: 25%;
+margin-right: 150px;
+`
+
 export const DivBotton = styled.div `
 display:flex;
 flex-direction: row;
@@ -126,6 +141,18 @@ export const ButtonS = styled.button `
     margin-right: 80px;
     margin-left: 80px;
 
+`
+
+
+export const InputStyledData = styled.input `
+    text-decoration: overline;
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: #E9F4FB;
+    padding: 0px;
+    font-size: 18px;
+    border-radius: 15px;
 `
 
 

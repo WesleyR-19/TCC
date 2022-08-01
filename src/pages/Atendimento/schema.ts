@@ -7,5 +7,6 @@ export default Yup.object().shape({
     bairro: Yup.string().required('O campo bairro é obrigatório!'),
     numero: Yup.number().integer('Insira um valor Interiro').positive('Somente Valores Inteiros são permitidos!'),
     descricao: Yup.string(),
+    data: Yup.date().required('O campo data é obrigatório'),
 });
 
