@@ -147,7 +147,7 @@ const navigate = useNavigate();
                     </DivInputs>
                     <DivBotton>
                         <ButtonS disabled={!isValid} onClick={() => handleSubmit()} >Gerar Atendimento</ButtonS>
-                        <ButtonS onClick={() => navigate("/Login")} >Voltar a Pagina Inicial</ButtonS>
+                        <ButtonS onClick={() => navigate("/")} >Voltar a Pagina Inicial</ButtonS>
                     </DivBotton>
                 </>
                 )}
