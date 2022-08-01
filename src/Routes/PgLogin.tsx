@@ -5,7 +5,7 @@ import PgLogin from "../pages/Login/PgLogin";
 function PgLoginRoutes() {
     return(
         <Routes>
-            <Route path="/Login" element={<PgLogin/>} ></Route>
+            <Route path="/" element={<PgLogin/>} ></Route>
         </Routes>
     )
 }
