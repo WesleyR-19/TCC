@@ -4,17 +4,18 @@ import {
 	DivGeral,
 	DivSair,
 	ButtonST,
-	DivImage,
+	DivText,
 	Icons,
 	DivElement,
-} from "../../styles/PgHomeStyled";
+	DivBotton,
+	ButtonS,
+} from "../../styles/PgRelatorioStyled";
 
-import Atendimento from "../../images/atendimento.png";
-import Avaliação from "../../images/avaliação.png";
-import Relatório from "../../images/relatório.png";
-import ImagemCentral from "../../images/icon.png";
+import Atendimentos from "../../images/Atendimentos.png";
+import Avaliações from "../../images/Avaliações.png";
+import RelatorioG from "../../images/RelatorioG.png";
 
-function PgHome() {
+function PgRelatorio() {
 	const navigate = useNavigate();
 	return (
 		<>
@@ -22,32 +23,37 @@ function PgHome() {
 				<DivSair>
 					<ButtonST onClick={() => navigate("/")}>Sair</ButtonST>
 				</DivSair>
-				<DivImage>
-					<img src={ImagemCentral} alt="Main" />
-				</DivImage>
+				<DivText>
+					<text>Relatórios</text>
+				</DivText>
 				<DivElement>
 					<Icons onClick={() => navigate("/Atendimento")}>
-						<img src={Atendimento} alt="At" />
+						<img src={Atendimentos} alt="At" />
 						<br />
 						<br />
 						<text>Gerar Atendimento</text>
 					</Icons>
 					<Icons onClick={() => navigate("/")}>
-						<img src={Avaliação} alt="Av" />
+						<img src={Avaliações} alt="Av" />
 						<br />
 						<br />
 						<text>Avaliações</text>
 					</Icons>
 					<Icons onClick={() => navigate("/")}>
-						<img src={Relatório} alt="Rel" />
+						<img src={RelatorioG} alt="Rel" />
 						<br />
 						<br />
 						<text>Relatório</text>
 					</Icons>
 				</DivElement>
+				<DivBotton>
+					<ButtonS onClick={() => navigate("/Home")}>
+						Voltar a Pagina Inicial
+					</ButtonS>
+				</DivBotton>
 			</DivGeral>
 		</>
 	);
 }
 
-export default PgHome;
+export default PgRelatorio;

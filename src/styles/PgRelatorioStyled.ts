@@ -37,13 +37,12 @@ display: flex;
 flex-direction: row;
 `
 
-export const DivImage = styled.div `
+export const DivText = styled.div `
 margin-top: 70px;
-margin-bottom: 70px;
-img {
-  border-radius: 50%;
-  width: 20%;
-  height: 20%;
+margin-bottom: 170px;
+text {
+    font-size: 50px;
+    color: #01243C;
 }
 `
 
@@ -53,7 +52,7 @@ height: 120px;
 background-color: #4180AB;
 border-radius: 100%;
 margin-left: 300px;
-margin-bottom: 120px;
+margin-bottom: 145px;
 display: block;
 justify-content: center;
 align-items: center;
@@ -63,4 +62,28 @@ img {
     height: 78px;
     margin-top: 18px;
 }
+`
+
+export const DivBotton = styled.div `
+display:flex;
+flex-direction: row;
+justify-content: center;
+margin: 5px;
+`
+
+export const ButtonS = styled.button `
+    width: 25%;
+    height: 50px;
+    border: none;
+    padding: 0px;
+    font-size: 18px;
+    border-radius: 15px;
+    color: white;
+    background-color: #01243C;
+    font-weight: bold;
+    box-shadow: 1px 1px 3px black;
+    margin-right: 70px;
+    margin-left: 70px;
+    margin-bottom: 50px;
+
 `

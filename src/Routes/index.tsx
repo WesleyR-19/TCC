@@ -1,14 +1,18 @@
 import React from "react";
-import { PgaAtendimentoRoutes } from "./atendimento";
+import { PgHomeRoutes } from "./home";
 import PgLoginRoutes from "./PgLogin";
+import { PgaAtendimentoRoutes } from "./atendimento";
+import { PgRelatorioRoutes } from "./relatorio";
 
 function Routes() {
-    return(
-        <>
-            <PgaAtendimentoRoutes/>
-            <PgLoginRoutes/>
-        </>
-    )
+	return (
+		<>
+			<PgHomeRoutes />
+			<PgaAtendimentoRoutes />
+			<PgLoginRoutes />
+			<PgRelatorioRoutes />
+		</>
+	);
 }
 
 export default Routes;
