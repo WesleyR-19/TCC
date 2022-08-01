@@ -10,7 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: Poppins;
-    
+    margin: 0px;
 }
 #root {
     width: 100%;

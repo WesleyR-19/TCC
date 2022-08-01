@@ -1,7 +1,26 @@
 import React from "react";
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import Select, { OnChangeValue, OptionContext } from 'react-select'
+import Schema from "./schema";
+import {
+    DivGeral, 
+    DivSair, 
+    ButtonST, 
+    DivElements,
+    Titulo,
+    DivInputs,
+    DivItems, 
+    Posicionamento,
+    LabelText,
+    InputStyled,
+    DivUnir,
+    InputStyledNumero,
+    CampoDescricao,
+    DivBotton,
+    ButtonS
+    
+} from '../../styles/PgAtendimentoStyled'
 
 
 const options = [
@@ -27,11 +46,15 @@ function PgAtendimento () {
 const navigate = useNavigate();
     return (
         <>
-        <div>
-            <div>
-                <h1>Atendimento</h1>
-            </div>
+        <DivGeral>
+            <DivSair>
+                <ButtonST onClick={() => navigate("/Login")} >Sair</ButtonST>
+            </DivSair>
+            <DivElements>
+                <Titulo>Atendimento</Titulo>
             <Formik
+            validationSchema={Schema}
+            validateOnMount
             initialValues={{
                 nome: '',
                 sobrenome: '',
@@ -41,91 +64,97 @@ const navigate = useNavigate();
                 localAtendimento: '',
                 descricao: '',
                 motivoAtendimento: '',
-              }}
-              onSubmit={values => console.log(values)}       
+            }}
+            onSubmit={values => console.log(values)}       
             >
-                {({ handleChange, handleBlur, handleSubmit, values }) => (
+                {({ handleChange, handleBlur, handleSubmit, values, isValid }) => (
                 <>
-                    <div>
-                        <label>Motivo do Atendimento:</label>
-                        <Select placeholder="Seleciono o motivo de Atendimento..." onChange={(newValue) => {
-                            // console.log(newValue)
-                            if (newValue?.value) {
-                                handleChange('motivoAtendimento')(newValue.value);
-                            }
-                        }} options={options} />
-                        
-                        <label>Name</label>
-                        <input
-                        onChange={handleChange('nome')}
-                        onBlur={handleBlur('nome')}
-                        value={values.nome}
-                        placeholder="Nome:"
-                        placeholder-color="#585858"
-                        />
+                    <DivInputs>
+                        <DivItems>
+                            <LabelText>Motivo do Atendimento:</LabelText>
+                            <Select placeholder="Seleciono o motivo de Atendimento..." onChange={(newValue) => {
+                                // console.log(newValue)
+                                if (newValue?.value) {
+                                    handleChange('motivoAtendimento')(newValue.value);
+                                }
+                            }} options={options}/>
+                            <DivItems>
+                                <Posicionamento> 
+                                    <DivUnir>
+                                        <LabelText>Nome:</LabelText>
+                                        <InputStyled
+                                        onChange={handleChange('nome')}
+                                        onBlur={handleBlur('nome')}
+                                        value={values.nome}
+                                        />
+                                        <ErrorMessage name="nome" />
+                                    </DivUnir>
+                                    <DivUnir>
+                                    <LabelText>Sobrenome:</LabelText>
+                                    <InputStyled
+                                    onChange={handleChange('sobrenome')}
+                                    onBlur={handleBlur('sobrenome')}
+                                    value={values.sobrenome}
+                                    />
+                                    <ErrorMessage name="sobrenome" />
+                                    </DivUnir>
+                                </Posicionamento>
+                            </DivItems>
+                                <Posicionamento>
+                                    <DivUnir>
+                                        <LabelText>Rua:</LabelText>
+                                        <InputStyled
+                                        onChange={handleChange('rua')}
+                                        onBlur={handleBlur('rua')}
+                                        value={values.rua}
+                                        />
+                                        <ErrorMessage name="rua" />
+                                    </DivUnir>
+                                    <DivUnir>
+                                        <LabelText>Bairro:</LabelText>
+                                        <InputStyled
+                                        onChange={handleChange('bairro')}
+                                        onBlur={handleBlur('bairro')}
+                                        value={values.bairro}
+                                        />
+                                        <ErrorMessage name="bairro" />
+                                    </DivUnir>
+                                    <DivUnir>
+                                        <LabelText>Número:</LabelText>
+                                        <InputStyledNumero
+                                        onChange={handleChange('numero')}
+                                        onBlur={handleBlur('numero')}
+                                        value={values.numero}
+                                    />
+                                    <ErrorMessage name="numero" />
+                                    </DivUnir>
+                                </Posicionamento>
 
-                        <label>Sobrenome:</label>
-                        <input
-                        onChange={handleChange('sobrenome')}
-                        onBlur={handleBlur('sobrenome')}
-                        value={values.sobrenome}
-                        placeholder="Sobrenome:"
-                        placeholder-color="#585858"
-                        ></input>
+                                <LabelText>Local do Atendimento:</LabelText>
+                                <Select placeholder="Selecione o Local de Atendimento..." onChange={(newValue) => {
+                                    // console.log(newValue)
+                                    if (newValue?.value) {
+                                        handleChange('localAtendimento')(newValue.value);
+                                    }
+                                }} options={localAtedimento} />
 
-                        <label>Rua:</label>
-                        <input
-                        onChange={handleChange('rua')}
-                        onBlur={handleBlur('rua')}
-                        value={values.rua}
-                        placeholder="Rua:"
-                        placeholder-color="#585858"
-                        ></input>
-
-                        <label>Bairro:</label>
-                        <input
-                        onChange={handleChange('bairro')}
-                        onBlur={handleBlur('bairro')}
-                        value={values.bairro}
-                        placeholder="Bairro:"
-                        placeholder-color="#585858"
-                        ></input>
-
-                        <label>Numero:</label>
-                        <input
-                        onChange={handleChange('numero')}
-                        onBlur={handleBlur('numero')}
-                        value={values.numero}
-                        placeholder="Numero:"
-                        placeholder-color="#585858"
-                        ></input>
-                        
-                        <label>Local do Atentedimento:</label>
-                        <Select placeholder="Selecione o Local de Atendimento..." onChange={(newValue) => {
-                            // console.log(newValue)
-                            if (newValue?.value) {
-                                handleChange('motivoAtendimento')(newValue.value);
-                            }
-                        }} options={localAtedimento} />
-
-                        <label>Descrição:</label>
-                        <input
-                        onChange={handleChange('descricao')}
-                        onBlur={handleBlur('descricao')}
-                        value={values.descricao}
-                        placeholder="Descrição:"
-                        placeholder-color="#585858"
-                        ></input>
-                    </div>
-                    <div>
-                        <button onClick={() => handleSubmit()} >Gerar Atendimento</button>
-                        <button onClick={() => navigate("/Login")} >Voltar a Pagina Inicial</button>
-                    </div>
+                                <LabelText>Descrição:</LabelText>
+                                <CampoDescricao
+                                    onChange={handleChange('descricao')}
+                                    onBlur={handleBlur('descricao')}
+                                    value={values.descricao}/>
+                            </DivItems>
+                    </DivInputs>
+                    <DivBotton>
+                        <ButtonS disabled={!isValid} onClick={() => handleSubmit()} >Gerar Atendimento</ButtonS>
+                        <ButtonS onClick={() => navigate("/Login")} >Voltar a Pagina Inicial</ButtonS>
+                    </DivBotton>
                 </>
                 )}
 
             </Formik>
-        </div>
+            </DivElements>
+        </DivGeral>
         </>
     ) 
 }
