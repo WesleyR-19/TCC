@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Formik, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import Select, { OnChangeValue, OptionContext } from 'react-select'
 import Schema from "./schema";
+import  "react-datepicker/dist/react-datepicker.css" ; 
 import {
     DivGeral, 
     DivSair, 
@@ -18,9 +19,12 @@ import {
     InputStyledNumero,
     CampoDescricao,
     DivBotton,
-    ButtonS
+    ButtonS,
+    InputStyledData,
+    DivUnir2
     
 } from '../../styles/PgAtendimentoStyled'
+import { date } from "yup";
 
 
 const options = [
@@ -41,7 +45,9 @@ const localAtedimento = [
   ]
 
 
+
 function PgAtendimento () {
+
 
 const navigate = useNavigate();
     return (
@@ -51,6 +57,7 @@ const navigate = useNavigate();
                 <ButtonST onClick={() => navigate("/Login")} >Sair</ButtonST>
             </DivSair>
             <DivElements>
+
                 <Titulo>Atendimento</Titulo>
             <Formik
             validationSchema={Schema}
@@ -64,13 +71,22 @@ const navigate = useNavigate();
                 localAtendimento: '',
                 descricao: '',
                 motivoAtendimento: '',
+                data: '',
             }}
             onSubmit={values => console.log(values)}       
             >
-                {({ handleChange, handleBlur, handleSubmit, values, isValid }) => (
+                {({ handleChange, handleBlur, handleSubmit, values, isValid,  }) => (
                 <>
                     <DivInputs>
                         <DivItems>
+                          <LabelText>Local do Atendimento:</LabelText>
+                                <Select placeholder="Selecione o Local de Atendimento..." onChange={(newValue) => {
+                                    // console.log(newValue)
+                                    if (newValue?.value) {
+                                        handleChange('localAtendimento')(newValue.value);
+                                    }
+                                }} options={localAtedimento} />
+
                             <LabelText>Motivo do Atendimento:</LabelText>
                             <Select placeholder="Seleciono o motivo de Atendimento..." onChange={(newValue) => {
                                 // console.log(newValue)
@@ -78,6 +94,7 @@ const navigate = useNavigate();
                                     handleChange('motivoAtendimento')(newValue.value);
                                 }
                             }} options={options}/>
+
                             <DivItems>
                                 <Posicionamento> 
                                     <DivUnir>
@@ -119,42 +136,40 @@ const navigate = useNavigate();
                                         />
                                         <ErrorMessage name="bairro" />
                                     </DivUnir>
-                                    <DivUnir>
+                                    <DivUnir2>
                                         <LabelText>Número:</LabelText>
                                         <InputStyledNumero
                                         onChange={handleChange('numero')}
                                         onBlur={handleBlur('numero')}
                                         value={values.numero}
                                     />
-                                    <ErrorMessage name="numero" />
-                                    </DivUnir>
+                                    </DivUnir2>
+                                    <DivUnir>
+                                        <LabelText>Data:</LabelText>
+                                        <InputStyledData
+                                        type={"date"} 
+                                        onChange={handleChange('data')}
+                                        onBlur={handleBlur('data')}
+                                        value={values.data} />
+                                        <ErrorMessage name="data" />
+                                </DivUnir>
                                 </Posicionamento>
-
-                                <LabelText>Local do Atendimento:</LabelText>
-                                <Select placeholder="Selecione o Local de Atendimento..." onChange={(newValue) => {
-                                    // console.log(newValue)
-                                    if (newValue?.value) {
-                                        handleChange('localAtendimento')(newValue.value);
-                                    }
-                                }} options={localAtedimento} />
-
                                 <LabelText>Descrição:</LabelText>
                                 <CampoDescricao
                                     onChange={handleChange('descricao')}
                                     onBlur={handleBlur('descricao')}
                                     value={values.descricao}/>
                             </DivItems>
+                            <DivBotton>
+                                <ButtonS disabled={!isValid} onClick={() => handleSubmit()} >Gerar Atendimento</ButtonS>
+                                <ButtonS onClick={() => navigate("/")} >Voltar a Pagina Inicial</ButtonS>
+                            </DivBotton>
                     </DivInputs>
-                    <DivBotton>
-                        <ButtonS disabled={!isValid} onClick={() => handleSubmit()} >Gerar Atendimento</ButtonS>
-                        <ButtonS onClick={() => navigate("/Login")} >Voltar a Pagina Inicial</ButtonS>
-                    </DivBotton>
                 </>
                 )}
-
             </Formik>
             </DivElements>
-        </DivGeral>
+            </DivGeral>
         </>
     ) 
 }
