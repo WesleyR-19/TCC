@@ -3,7 +3,6 @@ import { Formik, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import Select, { OnChangeValue, OptionContext } from 'react-select'
 import Schema from "./schema";
-import  "react-datepicker/dist/react-datepicker.css" ; 
 import {
     DivGeral, 
     DivSair, 

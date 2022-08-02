@@ -46,7 +46,7 @@ font-family: Arial;
 font-size: 64px;
 font-style: none;
 margin: 0px;
-margin-top: 50px;
+padding: 25px;
 `
 export const DivInputs = styled.div `
 flex-direction: column;
@@ -145,6 +145,7 @@ flex-direction: row;
 width: 100%;
 justify-content: center;
 margin: 5px;
+margin-top: 25px;
 `
 export const ButtonS = styled.button `
     width: 25%;
