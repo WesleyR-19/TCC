@@ -8,5 +8,7 @@ export default Yup.object().shape({
     numero: Yup.number().integer('Insira um valor Interiro').positive('Somente Valores Inteiros são permitidos!'),
     descricao: Yup.string(),
     data: Yup.date().required('O campo data é obrigatório'),
+    motivoAtendimento: Yup.string().required("O campo Motivo do Atendimento é obrigatório!"),
+    localAtendimento: Yup.string().required("O campo Local do Atendimento é obrigatório!"),
 });
 
