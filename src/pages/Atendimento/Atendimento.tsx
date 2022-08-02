@@ -49,6 +49,8 @@ const localAtedimento = [
 function PgAtendimento () {
 
 
+
+
 const navigate = useNavigate();
     return (
         <>
@@ -75,26 +77,10 @@ const navigate = useNavigate();
             }}
             onSubmit={values => console.log(values)}       
             >
-                {({ handleChange, handleBlur, handleSubmit, values, isValid,  }) => (
+                {({ handleChange, handleBlur, handleSubmit, values, isValid, errors, touched  }) => (
                 <>
                     <DivInputs>
                         <DivItems>
-                          <LabelText>Local do Atendimento:</LabelText>
-                                <Select placeholder="Selecione o Local de Atendimento..." onChange={(newValue) => {
-                                    // console.log(newValue)
-                                    if (newValue?.value) {
-                                        handleChange('localAtendimento')(newValue.value);
-                                    }
-                                }} options={localAtedimento} />
-
-                            <LabelText>Motivo do Atendimento:</LabelText>
-                            <Select placeholder="Seleciono o motivo de Atendimento..." onChange={(newValue) => {
-                                // console.log(newValue)
-                                if (newValue?.value) {
-                                    handleChange('motivoAtendimento')(newValue.value);
-                                }
-                            }} options={options}/>
-
                             <DivItems>
                                 <Posicionamento> 
                                     <DivUnir>
@@ -103,6 +89,7 @@ const navigate = useNavigate();
                                         onChange={handleChange('nome')}
                                         onBlur={handleBlur('nome')}
                                         value={values.nome}
+                                        error={!!(errors['nome'] && touched.nome)}
                                         />
                                         <ErrorMessage name="nome" />
                                     </DivUnir>
@@ -112,11 +99,14 @@ const navigate = useNavigate();
                                     onChange={handleChange('sobrenome')}
                                     onBlur={handleBlur('sobrenome')}
                                     value={values.sobrenome}
+                                    error={!!(errors['sobrenome'] && touched.sobrenome)}
                                     />
                                     <ErrorMessage name="sobrenome" />
                                     </DivUnir>
                                 </Posicionamento>
+                        
                             </DivItems>
+
                                 <Posicionamento>
                                     <DivUnir>
                                         <LabelText>Rua:</LabelText>
@@ -124,6 +114,7 @@ const navigate = useNavigate();
                                         onChange={handleChange('rua')}
                                         onBlur={handleBlur('rua')}
                                         value={values.rua}
+                                        error={!!(errors ['rua'] && touched.rua)}
                                         />
                                         <ErrorMessage name="rua" />
                                     </DivUnir>
@@ -133,6 +124,7 @@ const navigate = useNavigate();
                                         onChange={handleChange('bairro')}
                                         onBlur={handleBlur('bairro')}
                                         value={values.bairro}
+                                        error={!!(errors ['bairro'] && touched.bairro)}
                                         />
                                         <ErrorMessage name="bairro" />
                                     </DivUnir>
@@ -153,12 +145,37 @@ const navigate = useNavigate();
                                         value={values.data} />
                                         <ErrorMessage name="data" />
                                 </DivUnir>
+
                                 </Posicionamento>
-                                <LabelText>Descrição:</LabelText>
-                                <CampoDescricao
-                                    onChange={handleChange('descricao')}
-                                    onBlur={handleBlur('descricao')}
-                                    value={values.descricao}/>
+
+                                <Posicionamento>
+                                <DivUnir>
+                                    <LabelText>Local do Atendimento:</LabelText>
+                                    <Select onBlur={handleBlur('localAtendimento')} placeholder="Selecione o Local de Atendimento..." onChange={(newValue) => {
+                                        // console.log(newValue)
+                                        if (newValue?.value) {
+                                            handleChange('localAtendimento')(newValue.value);
+                                        }
+                                    }} options={localAtedimento} />
+                                    <ErrorMessage name="localAtendimento" />
+
+                                    <LabelText>Motivo do Atendimento:</LabelText>
+                                    <Select onBlur={handleBlur('motivoAtendimento')} placeholder="Seleciono o motivo de Atendimento..." onChange={(newValue) => {
+                                        // console.log(newValue)
+                                        if (newValue?.value) {
+                                            handleChange('motivoAtendimento')(newValue.value);
+                                        }
+                                    }} options={options}/>
+                                    <ErrorMessage name="motivoAtendimento" />
+
+                                    <LabelText>Descrição:</LabelText>
+                                    <CampoDescricao
+                                        onChange={handleChange('descricao')}
+                                        onBlur={handleBlur('descricao')}
+                                        value={values.descricao}/>
+                                    </DivUnir>
+                                </Posicionamento>
+
                             </DivItems>
                             <DivBotton>
                                 <ButtonS disabled={!isValid} onClick={() => handleSubmit()} >Gerar Atendimento</ButtonS>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import ImgFundo from "../images/fundo.png";
 
 export const DivGeral = styled.div `
@@ -62,27 +62,46 @@ height: 100vh;
 export const DivItems = styled.div `
 flex-direction: column;
 display: flex;
-margin: 50px;
 margin-top: 0px;
 `
 
 export const Posicionamento = styled.div `
 display: flex;
 flex-direction: row;
+padding-right: 50px;
+padding-left: 50px;
 `
 export const LabelText = styled.label `
 font-size: 26px;
 `
+interface InputStyledProps { 
+    error?: boolean;
+}
 
-export const InputStyled = styled.input `
+export const InputStyled  = styled.input<InputStyledProps> `
     text-decoration: overline;
     width: 100%;
     height: 50px;
     border: none;
-    background-color: #E9F4FB;
+    /* background-color: ${props => props.error ? "red" : ""}; */
     padding: 0px;
     font-size: 18px;
     border-radius: 15px;
+    ${props => {
+        if (props.error){
+        return css `
+                border-color: red;
+                border-style: solid;
+                border-width: 2px;
+                
+            `
+        }else {
+            return css `
+                background-color: #E9F4FB;
+            `
+        }
+    }};
+    
 `
 
 export const InputStyledNumero = styled.input `
