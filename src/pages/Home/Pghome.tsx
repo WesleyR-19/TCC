@@ -38,7 +38,7 @@ function PgHome() {
 						<br />
 						<text>Avaliações</text>
 					</Icons>
-					<Icons onClick={() => navigate("/")}>
+					<Icons onClick={() => navigate("/Relatorio")}>
 						<img src={Relatório} alt="Rel" />
 						<br />
 						<br />
