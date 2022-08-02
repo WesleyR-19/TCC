@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { createGlobalStyle } from 'styled-components';
 import fundoLogin from "../images/fundoLogin.png"
+import { InputStyledProps }  from "./PgAtendimentoStyled"; "./PgAtendimentoStyled"
 
 export const GlobalStyle = createGlobalStyle `
 body {
@@ -87,7 +88,8 @@ color:white;
     font-size:10px;
 }
 `
-export const InputPreencher = styled.input `
+
+export const InputPreencher = styled.input<InputStyledProps> `
     text-decoration: overline;
     width: 100%;
     border: none;
@@ -99,6 +101,40 @@ export const InputPreencher = styled.input `
     border-right: none;
     padding: 0px;
     font-size: 18px;
+
+    ${props => {
+        if (props.error){
+        return css `
+                text-decoration: overline;
+                width: 100%;
+                border: none;
+                background-color: #4180AB;
+                border-style: solid;
+                border-color: red;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                padding: 0px;
+                font-size: 18px;
+                
+            `
+        }else {
+            return css `
+                text-decoration: overline;
+                width: 100%;
+                border: none;
+                background-color: #4180AB;
+                border-style: solid;
+                border-color: white;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                padding: 0px;
+                font-size: 18px;
+            `
+        }
+    }};
+    
     
 
     :focus {

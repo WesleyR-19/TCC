@@ -74,7 +74,7 @@ padding-left: 50px;
 export const LabelText = styled.label `
 font-size: 26px;
 `
-interface InputStyledProps { 
+export interface InputStyledProps { 
     error?: boolean;
 }
 
@@ -93,6 +93,7 @@ export const InputStyled  = styled.input<InputStyledProps> `
                 border-color: red;
                 border-style: solid;
                 border-width: 2px;
+                background-color: #FFE0E0;
                 
             `
         }else {
