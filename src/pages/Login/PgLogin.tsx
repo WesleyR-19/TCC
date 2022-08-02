@@ -51,7 +51,7 @@ function PgLogin() {
                             </DivUsuario>
                             <DivBotao>
                                 <br/>
-                                <ButtonEnviar onClick={() => handleSubmit()}> Entrar </ButtonEnviar>
+                                <ButtonEnviar onClick={() => navigate('/Home')}> Entrar </ButtonEnviar>
                                 <br/>
                             </DivBotao>
                     </>
