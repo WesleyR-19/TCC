@@ -3,6 +3,22 @@ import { Formik, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import Select, { OnChangeValue, OptionContext } from 'react-select'
 import Schema from "./schema";
+import {db, auth } from "../../utils/firebase";
+console.log(db);
+import { collection, addDoc } from "firebase/firestore";
+
+function CriaAtendimento(){
+    try {
+        // const docRef = addDoc(collection(db, "Atendimento"), {
+        //   Nome: "Julio",
+        // });
+        console.log("Document written with ID: ",);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+      
+}
+
 import {
     DivGeral, 
     DivSair, 
