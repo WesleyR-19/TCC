@@ -18,6 +18,7 @@ function CriaAtendimento(){
       }
       
 }
+CriaAtendimento()
 
 import {
     DivGeral, 
