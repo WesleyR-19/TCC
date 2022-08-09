@@ -7,19 +7,6 @@ import {db, } from "../../utils/firebase";
 console.log(db);
 import { collection, addDoc,  } from "firebase/firestore";
 
-function CriaAtendimento(){
-    try {
-        const docRef = addDoc(collection(db, "Atendimento"), {
-          Nome: "Julio",
-        });
-        console.log("Document written with ID: ",);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-      
-}
-CriaAtendimento()
-
 import {
     DivGeral, 
     DivSair, 
@@ -41,6 +28,7 @@ import {
     
 } from '../../styles/PgAtendimentoStyled'
 import { date } from "yup";
+import { confirmPasswordReset } from "firebase/auth";
 
 
 const options = [
@@ -63,8 +51,6 @@ const localAtedimento = [
 
 
 function PgAtendimento () {
-
-
 
 
 const navigate = useNavigate();
@@ -91,7 +77,21 @@ const navigate = useNavigate();
                 motivoAtendimento: '',
                 data: '',
             }}
-            onSubmit={values => console.log(values)}       
+            onSubmit={values => {
+                addDoc(collection(db, "Atendimento"), {
+                  Nome: values.nome,
+                  Sobrenome: values.sobrenome,
+                  rua: values.rua,
+                  bairro: values.bairro,
+                  numero: values.numero,
+                  localAtendimento: values.localAtendimento,
+                  descricao: values.descricao,
+                  motivoAtendimento: values.motivoAtendimento,
+                  data: values.data,
+
+                });
+
+        }}       
             >
                 {({ handleChange, handleBlur, handleSubmit, values, isValid, errors, touched  }) => (
                 <>

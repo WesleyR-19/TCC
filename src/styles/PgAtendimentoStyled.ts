@@ -30,6 +30,8 @@ font-weight: bold;
 text-decoration: none;
 border: none;
 margin-top: 1%;
+cursor: pointer;
+
 `
 export const DivElements = styled.div `
 display:flex;
@@ -87,6 +89,7 @@ export const InputStyled  = styled.input<InputStyledProps> `
     padding: 0px;
     font-size: 18px;
     border-radius: 15px;
+    cursor: pointer;
     ${props => {
         if (props.error){
         return css `
@@ -114,6 +117,7 @@ export const InputStyledNumero = styled.input `
     padding: 0px;
     font-size: 18px;
     border-radius: 15px;
+    cursor: pointer;
 `
 export const CampoDescricao = styled.textarea `
     text-decoration: overline;
@@ -124,6 +128,7 @@ export const CampoDescricao = styled.textarea `
     padding: 0px;
     font-size: 18px;
     border-radius: 15px;
+    cursor: pointer;
 `
 
 export const DivUnir = styled.div `
@@ -161,6 +166,11 @@ export const ButtonS = styled.button `
     box-shadow: 1px 1px 3px black;
     margin-right: 80px;
     margin-left: 80px;
+    cursor: pointer;
+    :hover {
+        transform: scale(1.03)
+    }
+    transform: 0.6s;
 
 `
 
@@ -174,6 +184,7 @@ export const InputStyledData = styled.input `
     padding: 0px;
     font-size: 18px;
     border-radius: 15px;
+    cursor: pointer;
 `
 
 
