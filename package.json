@@ -9,7 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "firebase": "^9.9.0",
+=======
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/material": "^5.9.3",
+    "axios": "^0.27.2",
+    "firebase": "^9.8.2",
+>>>>>>> Avaliações
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
