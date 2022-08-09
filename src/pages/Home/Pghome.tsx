@@ -32,13 +32,13 @@ function PgHome() {
 						<br />
 						<text>Gerar Atendimento</text>
 					</Icons>
-					<Icons onClick={() => navigate("/")}>
+					<Icons onClick={() => navigate("/Avaliacao")}>
 						<img src={Avaliação} alt="Av" />
 						<br />
 						<br />
 						<text>Avaliações</text>
 					</Icons>
-					<Icons onClick={() => navigate("/")}>
+					<Icons onClick={() => navigate("/Relatorio")}>
 						<img src={Relatório} alt="Rel" />
 						<br />
 						<br />

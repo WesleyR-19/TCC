@@ -149,6 +149,12 @@ font-size: 16px;
 font-style: 'normal';
 font-weight: 700;
 margin-top: 44px;
+border: none;
+cursor: pointer;
+:hover{
+    transform: scale(1.03);
+}
+transition: 0.5s;
 
 @media (max-width: 825px)
 {
