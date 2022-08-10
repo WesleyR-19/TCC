@@ -25,3 +25,4 @@ dist-ssr
 
 #Banco
 initialize-app.json*
+package-lock.json*
