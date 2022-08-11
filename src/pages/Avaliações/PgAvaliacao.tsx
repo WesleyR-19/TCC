@@ -18,6 +18,7 @@ import {
 	DivLinha,
 	ButtonST,
 	DivText,
+	DivAlign,
 	DivBotton,
 	ButtonS,
 } from "../../styles/PgAvaliacaoStyled";
@@ -63,7 +64,7 @@ const customIcons: {
 	3: {
 		icon: (
 			<SentimentSatisfied
-				htmlColor="gray"
+				htmlColor="#454545"
 				style={{ width: "50px", height: "50px", margin: "-20px 5px 0 5px" }}
 			/>
 		),
@@ -103,18 +104,42 @@ function IconContainer(props: IconContainerProps) {
 function PgAvaliacao() {
 	const navigate = useNavigate();
 
-	const [value, setValue] = React.useState<number | null>(0);
+	const [votacao, setVotacao] = React.useState({
+		equipe: 0,
+		local: 0,
+		tempoAtendimento: 0,
+		solucaoProblema: 0,
+		encaminhamentos: 0,
+		analise: 0,
+	});
+
 	const [hover, setHover] = React.useState(-1);
-	const [value2, setValue2] = React.useState<number | null>(0);
 	const [hover2, setHover2] = React.useState(-1);
-	const [value3, setValue3] = React.useState<number | null>(0);
 	const [hover3, setHover3] = React.useState(-1);
-	const [value4, setValue4] = React.useState<number | null>(0);
 	const [hover4, setHover4] = React.useState(-1);
-	const [value5, setValue5] = React.useState<number | null>(0);
 	const [hover5, setHover5] = React.useState(-1);
-	const [value6, setValue6] = React.useState<number | null>(0);
 	const [hover6, setHover6] = React.useState(-1);
+
+	function setOnChange(
+		nomeCampo:
+			| "equipe"
+			| "local"
+			| "tempoAtendimento"
+			| "solucaoProblema"
+			| "encaminhamentos"
+			| "analise"
+	) {
+		return (
+			_: React.SyntheticEvent<Element, Event>,
+			novoValor: number | null
+		) => {
+			setVotacao((oldVotacao) => {
+				const newVotacao = { ...oldVotacao };
+				if (novoValor) newVotacao[nomeCampo] = novoValor;
+				return newVotacao;
+			});
+		};
+	}
 
 	return (
 		<>
@@ -128,148 +153,147 @@ function PgAvaliacao() {
 				<DivMaster>
 					<DivIcones>
 						<DivLinha>
-							<p>Avalie o Atendimento da Equipe</p>
-							<StyledRating
-								sx={{ display: "flex", flexDirection: "row" }}
-								name="Equipe"
-								value={value}
-								precision={1}
-								highlightSelectedOnly
-								getLabelText={getLabelText}
-								IconContainerComponent={IconContainer}
-								emptyIcon={<SentimentVeryDissatisfied />}
-								onChange={(event, newValue) => {
-									setValue(newValue);
-								}}
-								onChangeActive={(event, newHover) => {
-									setHover(newHover);
-								}}
-							/>
-							{value !== null && (
-								<Box sx={{ ml: 38, mb: 6, mt: -4.6 }}>
-									{labels[hover !== -1 ? hover : value]}
+							<DivAlign>
+								<p>Avalie o Atendimento da Equipe</p>
+								<StyledRating
+									name="Equipe"
+									value={votacao.equipe}
+									precision={1}
+									highlightSelectedOnly
+									getLabelText={getLabelText}
+									IconContainerComponent={IconContainer}
+									emptyIcon={<SentimentVeryDissatisfied />}
+									onChange={setOnChange("equipe")}
+									onChangeActive={(event, newHover) => {
+										setHover(newHover);
+									}}
+								/>
+							</DivAlign>
+
+							{votacao.equipe !== null && (
+								<Box sx={{ ml: 2, mt: 8.5 }}>
+									{labels[hover !== -1 ? hover : votacao.equipe]}
 								</Box>
 							)}
 						</DivLinha>
+
 						<DivLinha>
-							<p>Avalie o Tempo de Atendimento</p>
-							<StyledRating
-								sx={{ display: "flex", flexDirection: "row" }}
-								name="Tempo de Atendimento"
-								value={value2}
-								precision={1}
-								highlightSelectedOnly
-								getLabelText={getLabelText}
-								IconContainerComponent={IconContainer}
-								emptyIcon={<SentimentDissatisfied />}
-								onChange={(event, newValue2) => {
-									setValue2(newValue2);
-								}}
-								onChangeActive={(event, newHover2) => {
-									setHover2(newHover2);
-								}}
-							/>
-							{value2 !== null && (
-								<Box sx={{ ml: 38, mb: 6, mt: -4.6 }}>
-									{labels[hover2 !== -1 ? hover2 : value2]}
+							<DivAlign>
+								<p>Avalie o Tempo de Atendimento</p>
+								<StyledRating
+									name="Tempo de Atendimento"
+									value={votacao.tempoAtendimento}
+									precision={1}
+									highlightSelectedOnly
+									getLabelText={getLabelText}
+									IconContainerComponent={IconContainer}
+									emptyIcon={<SentimentDissatisfied />}
+									onChange={setOnChange("tempoAtendimento")}
+									onChangeActive={(event, newHover2) => {
+										setHover2(newHover2);
+									}}
+								/>
+							</DivAlign>
+							{votacao.tempoAtendimento !== null && (
+								<Box sx={{ ml: 2, mt: 8.5 }}>
+									{labels[hover2 !== -1 ? hover2 : votacao.tempoAtendimento]}
 								</Box>
 							)}
 						</DivLinha>
+
 						<DivLinha>
-							<p>Avalie a Localização</p>
-							<StyledRating
-								sx={{ display: "flex", flexDirection: "row" }}
-								name="Localização"
-								value={value3}
-								precision={1}
-								highlightSelectedOnly
-								getLabelText={getLabelText}
-								IconContainerComponent={IconContainer}
-								emptyIcon={<SentimentSatisfied />}
-								onChange={(event, newValue3) => {
-									setValue3(newValue3);
-								}}
-								onChangeActive={(event, newHover3) => {
-									setHover3(newHover3);
-								}}
-							/>
-							{value3 !== null && (
-								<Box sx={{ ml: 38, mb: 6, mt: -4.6 }}>
-									{labels[hover3 !== -1 ? hover3 : value3]}
+							<DivAlign>
+								<p>Avalie a Localização</p>
+								<StyledRating
+									name="Localização"
+									value={votacao.local}
+									precision={1}
+									highlightSelectedOnly
+									getLabelText={getLabelText}
+									IconContainerComponent={IconContainer}
+									emptyIcon={<SentimentSatisfied />}
+									onChange={setOnChange("local")}
+									onChangeActive={(event, newHover3) => {
+										setHover3(newHover3);
+									}}
+								/>
+							</DivAlign>
+							{votacao.local !== null && (
+								<Box sx={{ ml: 2, mt: 8.5 }}>
+									{labels[hover3 !== -1 ? hover3 : votacao.local]}
 								</Box>
 							)}
 						</DivLinha>
 					</DivIcones>
 					<DivIcones>
 						<DivLinha>
-							<p>Avalie a Solução do Problema</p>
-							<StyledRating
-								sx={{ display: "flex", flexDirection: "row" }}
-								name="Solução do Problema"
-								value={value4}
-								precision={1}
-								highlightSelectedOnly
-								getLabelText={getLabelText}
-								IconContainerComponent={IconContainer}
-								emptyIcon={<SentimentSatisfiedAlt />}
-								onChange={(event, newValue4) => {
-									setValue4(newValue4);
-								}}
-								onChangeActive={(event, newHover4) => {
-									setHover4(newHover4);
-								}}
-							/>
-							{value4 !== null && (
-								<Box sx={{ ml: 38, mb: 6, mt: -4.6 }}>
-									{labels[hover4 !== -1 ? hover4 : value4]}
+							<DivAlign>
+								<p>Avalie a Solução do Problema</p>
+								<StyledRating
+									name="Solução do Problema"
+									value={votacao.solucaoProblema}
+									precision={1}
+									highlightSelectedOnly
+									getLabelText={getLabelText}
+									IconContainerComponent={IconContainer}
+									emptyIcon={<SentimentSatisfiedAlt />}
+									onChange={setOnChange("solucaoProblema")}
+									onChangeActive={(event, newHover4) => {
+										setHover4(newHover4);
+									}}
+								/>
+							</DivAlign>
+							{votacao.solucaoProblema !== null && (
+								<Box sx={{ ml: 2, mt: 8.5 }}>
+									{labels[hover4 !== -1 ? hover4 : votacao.solucaoProblema]}
+								</Box>
+							)}
+						</DivLinha>
+
+						<DivLinha>
+							<DivAlign>
+								<p>Avalie os Encaminhamentos</p>
+								<StyledRating
+									name="Encaminhamentos"
+									value={votacao.encaminhamentos}
+									precision={1}
+									highlightSelectedOnly
+									getLabelText={getLabelText}
+									IconContainerComponent={IconContainer}
+									emptyIcon={<SentimentSatisfiedAlt />}
+									onChange={setOnChange("encaminhamentos")}
+									onChangeActive={(event, newHover5) => {
+										setHover5(newHover5);
+									}}
+								/>
+							</DivAlign>
+
+							{votacao.encaminhamentos !== null && (
+								<Box sx={{ ml: 2, mt: 8.5 }}>
+									{labels[hover5 !== -1 ? hover5 : votacao.encaminhamentos]}
 								</Box>
 							)}
 						</DivLinha>
 						<DivLinha>
-							<p>Avalie os Encaminhamentos</p>
-							<StyledRating
-								sx={{ display: "flex", flexDirection: "row" }}
-								name="Encaminhamentos"
-								value={value5}
-								precision={1}
-								highlightSelectedOnly
-								getLabelText={getLabelText}
-								IconContainerComponent={IconContainer}
-								emptyIcon={<SentimentSatisfiedAlt />}
-								onChange={(event, newValue5) => {
-									setValue5(newValue5);
-								}}
-								onChangeActive={(event, newHover5) => {
-									setHover5(newHover5);
-								}}
-							/>
-							{value5 !== null && (
-								<Box sx={{ ml: 38, mb: 6, mt: -4.6 }}>
-									{labels[hover5 !== -1 ? hover5 : value5]}
-								</Box>
-							)}
-						</DivLinha>
-						<DivLinha>
-							<p>Avalie a Análise Geral</p>
-							<StyledRating
-								sx={{ display: "flex", flexDirection: "row" }}
-								name="Análise Geral"
-								value={value6}
-								precision={1}
-								highlightSelectedOnly
-								getLabelText={getLabelText}
-								IconContainerComponent={IconContainer}
-								emptyIcon={<SentimentVerySatisfied />}
-								onChange={(event, newValue6) => {
-									setValue6(newValue6);
-								}}
-								onChangeActive={(event, newHover6) => {
-									setHover6(newHover6);
-								}}
-							/>
-							{value6 !== null && (
-								<Box sx={{ ml: 38, mb: 6, mt: -4.6 }}>
-									{labels[hover6 !== -1 ? hover6 : value6]}
+							<DivAlign>
+								<p>Avalie a Análise Geral</p>
+								<StyledRating
+									name="Análise Geral"
+									value={votacao.analise}
+									precision={1}
+									highlightSelectedOnly
+									getLabelText={getLabelText}
+									IconContainerComponent={IconContainer}
+									emptyIcon={<SentimentVerySatisfied />}
+									onChange={setOnChange("analise")}
+									onChangeActive={(event, newHover6) => {
+										setHover6(newHover6);
+									}}
+								/>
+							</DivAlign>
+							{votacao.analise !== null && (
+								<Box sx={{ ml: 2, mt: 8.5 }}>
+									{labels[hover6 !== -1 ? hover6 : votacao.analise]}
 								</Box>
 							)}
 						</DivLinha>

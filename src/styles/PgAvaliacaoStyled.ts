@@ -34,15 +34,20 @@ margin-right: 40px;
 `
 
 export const DivLinha = styled.div`
-width: 75%;
+display: flex;
+flex-direction: row;
+width: 90%;
 height: 15vh;
 p {
-    display: flex;
-    flex-direction: row;
+    
     font-size: 22px;
     font-weight: 2px;
     color: #01243C;
 }
+`
+
+export const DivAlign = styled.div`
+min-width: 356px;
 `
 
 export const ButtonST = styled.button `
