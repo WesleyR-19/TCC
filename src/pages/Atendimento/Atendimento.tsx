@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Select, { OnChangeValue, OptionContext } from 'react-select'
 import Schema from "./schema";
 import {db, } from "../../utils/firebase";
-console.log(db);
 import { collection, addDoc,  } from "firebase/firestore";
 
 import {
@@ -90,10 +89,8 @@ const navigate = useNavigate();
                   descricao: values.descricao,
                   motivoAtendimento: values.motivoAtendimento,
                   data: values.data,
-
                 });
-
-        }}       
+        }}    
             >
                 {({ handleChange, handleBlur, handleSubmit, values, isValid, errors, touched  }) => (
                 <>
