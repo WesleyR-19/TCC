@@ -1,10 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Formik, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import Select, { OnChangeValue, OptionContext } from 'react-select'
 import Schema from "./schema";
 import {db, } from "../../utils/firebase";
 import { collection, addDoc,  } from "firebase/firestore";
+
 
 import {
     DivGeral, 
@@ -28,6 +29,8 @@ import {
 } from '../../styles/PgAtendimentoStyled'
 import { date } from "yup";
 import { confirmPasswordReset } from "firebase/auth";
+import { useTab } from "@mui/base";
+import { FunctionsOutlined } from "@material-ui/icons";
 
 
 const options = [
@@ -51,7 +54,15 @@ const localAtedimento = [
 
 function PgAtendimento () {
 
+    const refreshPage = () => {
+        window.location.reload();
+    }
 
+    const Text = () => {
+        useEffect(() => {
+            document.title = 'Atendimento Gerado com sucesso!' 
+        })
+    }
 
 
 const navigate = useNavigate();
@@ -89,7 +100,7 @@ const navigate = useNavigate();
                   descricao: values.descricao,
                   motivoAtendimento: values.motivoAtendimento,
                   data: values.data,
-                });
+                    }).then(refreshPage);
         }}    
             >
                 {({ handleChange, handleBlur, handleSubmit, values, isValid, errors, touched  }) => (
