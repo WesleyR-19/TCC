@@ -45,9 +45,10 @@ export const HeaderButton = styled.button`
 
 export const Wrapper = styled.div`
     display: flex;
-    justify-content: center;
-    width: 1200px;
-    height: 400px;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 1000px;
+    height: 100%;
 `;
 
 export const AttendanceWrapper = styled.div`
@@ -80,6 +81,7 @@ export const AttendanceTopics = styled.p`
     font-weight: 500;
     font-size: 14px;
     margin: 5px 0 0 0;
+    white-space: nowrap;
 `;
 
 export const AttendanceTopicsResponse = styled.p`
@@ -87,6 +89,9 @@ export const AttendanceTopicsResponse = styled.p`
     font-size: 12px;
     margin: 0 0 0 5px;
     font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 export const Footer = styled.div`
